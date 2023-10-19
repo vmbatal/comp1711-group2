@@ -2,10 +2,11 @@
 
 int main() {
 
-    int num = 16;
-    int b = "%d"
+    int num = 20;
+    int b = 4;
+    int c = 5;
 
-    if ((num/4) = "%d",b && (num/5) = "%d")
+    if ((num!=0) && (num % b == 0) && (num % c == 0))
     {
         printf ("%d is divisible by 4 and 5\n", num);
     }
