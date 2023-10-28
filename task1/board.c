@@ -1,13 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-// Define an appropriate struct
-typedef struct {
-	char date[11];
-	char time[6];
-	int steps;
-} FITNESS_DATA;
 
 // Define any additional variables here
 
@@ -43,36 +33,33 @@ void tokeniseRecord(const char *input, const char *delimiter,
 
 // Complete the main function
 
-int main() {
 
-    char* filename = "FitnessData_2023.csv";
+
+
+
+
+
+        char* filename = "FitnessData_2023.csv";
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
         printf("Error opening file\n");
         return 1;
     }
-   
-    int buffer_size = 999999;
+    int buffer_size = 100;
     char line_buffer[buffer_size];
-    //while (fgets(line_buffer, buffer_size, file) != NULL)
-    //{
-        //printf("%s", line_buffer);
-    //}
+    while (fgets(line_buffer, buffer_size, file) != NULL)
+    {
+        printf("%s", line_buffer);
+    }
 
-    int num = line_buffer, i;
-    while (fgets(line_buffer, buffer_size, file) != NULL) {
-        num = atoi(line_buffer);
-        }
+     //FITNESS_DATA = {2023-09-01,08:15,150};
 
-    //int num = line_buffer, i;
-    FITNESS_DATA fit [] = {};
-    printf("Number of records in file: %u\n", num);
-    //for (i = 0; i < num; i++) {
-    //printf("date: %s\n", fit[i].date);
-    //printf("time: %s\n", fit[i].time);
-    //printf("steps: %u\n", fit[i].steps);
-    //}
-    
+
+
+
+
+
+
+     
     fclose(file);
     return 0;
-}
