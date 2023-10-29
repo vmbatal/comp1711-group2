@@ -58,15 +58,33 @@ int main() {
     //{
         //printf("%s", line_buffer);
     //}
+    
+    int lin;
+    int rec = 0;
 
-    int num = line_buffer, i;
-    while (fgets(line_buffer, buffer_size, file) != NULL) {
-        num = atoi(line_buffer);
-        }
+    //while ((lin=getc(file)) !=EOF){
+       // if (lin == '\0')
+           // rec ++;
+    //}
+
+    while (EOF != (fscanf(file, "%*[^\n]"), fscanf(file,"%*c"))){
+        ++rec;
+    }
+
+    printf("Number of records in file: %d\n", rec);
+
+    //tokeniseRecord(record, date, time, steps);
+    
+    //int num = input, i;
+    //while (fgets(line_buffer, buffer_size, file) != NULL) {
+        //num = atoi(input);
+        //}
 
     //int num = line_buffer, i;
-    FITNESS_DATA fit [] = {};
-    printf("Number of records in file: %u\n", num);
+    
+    //FITNESS_DATA fit [] = {};
+    //printf("Number of records in file: %u\n", num);
+    
     //for (i = 0; i < num; i++) {
     //printf("date: %s\n", fit[i].date);
     //printf("time: %s\n", fit[i].time);
