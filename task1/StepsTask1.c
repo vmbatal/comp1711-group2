@@ -54,43 +54,63 @@ int main() {
    
     int buffer_size = 999999;
     char line_buffer[buffer_size];
-    //while (fgets(line_buffer, buffer_size, file) != NULL)
-    //{
-        //printf("%s", line_buffer);
-    //}
+
     
-    int lin;
-    int rec = 0;
+    int num = 10, i;
+    
+    
+    FITNESS_DATA fit []= {fscanf(file, "%d", num)};
 
-    //while ((lin=getc(file)) !=EOF){
-       // if (lin == '\0')
-           // rec ++;
-    //}
+    for(int i = 0; i < num; i++){
+        fscanf(file, "%s,%255[^,],%d", &fit[i].date, time, steps);
+        printf("%s %s %d\n", fit[i].date, fit[i].time, fit[i].steps);
+    } 
 
-    while (EOF != (fscanf(file, "%*[^\n]"), fscanf(file,"%*c"))){
-        ++rec;
+    int lin = 0;
+    char rec;
+
+    while (rec != EOF){
+        rec = fgetc(file);
+        if (rec == '\n'){
+            lin++;
+        } 
     }
 
-    printf("Number of records in file: %d\n", rec);
+    printf("Number of records in file: %d\n", lin);
 
-    //tokeniseRecord(record, date, time, steps);
-    
-    //int num = input, i;
-    //while (fgets(line_buffer, buffer_size, file) != NULL) {
-        //num = atoi(input);
-        //}
 
-    //int num = line_buffer, i;
+    //while (lin = 1){
+       // rec = fgetc(file);
+        //if (rec == '\n'){
+          //  lin++;
+       // } 
+    // }
     
-    //FITNESS_DATA fit [] = {};
-    //printf("Number of records in file: %u\n", num);
+    //int linea = 0;
+    //int dato;
     
-    //for (i = 0; i < num; i++) {
-    //printf("date: %s\n", fit[i].date);
-    //printf("time: %s\n", fit[i].time);
-    //printf("steps: %u\n", fit[i].steps);
+    //while ((dato = fgetc(file)) != EOF && linea <3){
+        //if (dato == '\n') linea++;
+        //putchar(dato);
     //}
     
+    
+    
+    //struct FITNESS_DATA fit
+
+    //int lines=3,i;
+    //FITNESS_DATA fit [] = {dato};
+    //for (i = 0; i < lines; i++){
+    //printf("%s/", fit[i].date);
+    //printf("%s/", fit[i].time);
+    //printf("%d/", fit[i].steps);
+    //}
+    
+    //strcpy(fit.date, "124");
+    //strcpy(fit.time, "132");
+    //printf("%s/", fit.date);
+    //printf("%s/", fit.time);
+
     fclose(file);
     return 0;
 }

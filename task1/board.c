@@ -1,3 +1,79 @@
+// fit[i].sa = strdup(sa);
+        // fit[i].sb = strdup(sb);    
+    
+    
+    
+    char input[38];
+    char date[11];
+    char time[6];
+    char steps[10];
+    
+    //tokeniseRecord(input,",",date,time,steps);
+
+    //int lines=3,i;
+    //FITNESS_DATA fit [] = {*date,*time,*steps};
+    //for (i = 0; i < lines; i++){
+    //printf("%s/", fit[i].date);
+    //printf("%s/", fit[i].time);
+    //printf("%d/", fit[i].steps);
+    //}
+
+    //printf("%s/", date);
+    //printf("%s/", time);
+    //printf("%s/", steps);
+
+
+    
+    
+    
+    int max = 0;
+    int content;
+    int date;
+    int steps;
+
+while ((content = fgetc(file)) != EOF && max < 10) {
+        if (content == ',') max++;
+        putchar(content);
+        
+            while ((date = fgetc(file)) !=EOF && max <= 20) {
+                if (date == ',') max++;
+                putchar(date);
+                }
+                while ((steps = fgetc(file)) !=EOF && max < 10) {
+                    if (steps == ',') max++;
+                    putchar(steps);
+                    }
+            
+
+    }
+
+
+
+
+while (lin<4){
+        printf("%s/", date);
+        printf("%s/", time);
+        printf("%d/", steps);
+    }
+
+
+        while (lin < 4){
+        rec = fgetc(file);
+        if (rec == '\n'){
+        lin++;}};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Define any additional variables here
 
@@ -32,6 +108,7 @@ void tokeniseRecord(const char *input, const char *delimiter,
 }
 
 // Complete the main function
+
 
 
 
