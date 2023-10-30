@@ -56,15 +56,15 @@ int main() {
     char line_buffer[buffer_size];
 
     
-    int num = 10, i;
+    //int num = 10, i;
     
     
-    FITNESS_DATA fit []= {fscanf(file, "%d", num)};
+    //FITNESS_DATA fit []= {fscanf(file, "%d", num)};
 
-    for(int i = 0; i < num; i++){
-        fscanf(file, "%s,%255[^,],%d", &fit[i].date, time, steps);
-        printf("%s %s %d\n", fit[i].date, fit[i].time, fit[i].steps);
-    } 
+    //for(int i = 0; i < num; i++){
+        
+        //printf("%s %s %d\n", fit[i].date, fit[i].time, fit[i].steps);
+    //} 
 
     int lin = 0;
     char rec;
@@ -78,6 +78,19 @@ int main() {
 
     printf("Number of records in file: %d\n", lin);
 
+    FITNESS_DATA fit[90];
+
+int records = 10;
+
+char rd[60] = fscanf(file,"%s,%[^,],%d,\n",
+fit[records].date, fit[records].time, &fit[records].steps);
+
+
+
+for (int i = 0; i<records; i++){
+    printf("%s/%s/%d",
+    fit[i].date, fit[i].time, fit[i].steps);
+}
 
     //while (lin = 1){
        // rec = fgetc(file);
