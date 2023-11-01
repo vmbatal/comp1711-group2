@@ -81,7 +81,10 @@ char line[MAX_LINE_SIZE+1];
  
     tok = strtok(line, coma);
  
-    while ( < 40){
+    //int lin2 = 0;
+    //char rec2;
+
+    while (lnum<4){
         while (tok != 0) {
             printf("%s/", tok);
             tok = strtok(0, coma);
@@ -99,6 +102,7 @@ char line[MAX_LINE_SIZE+1];
             tok = strtok(0, coma);
             break;
         }
+    break;
     }
     //tok = strtok(date, coma);
     
