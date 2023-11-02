@@ -56,6 +56,7 @@ char* filename = "FitnessData_2023.csv";
     char line[80];
     const char coma[4] = ",";
     char* info;
+    int infst;
 
     while (1) {
         fgets(line, 80,  file);
@@ -78,8 +79,9 @@ char* filename = "FitnessData_2023.csv";
                 }
 
             while (info != 0) {
-                printf("%s", info);
+                infst=atoi(info);
                 info = strtok(0, coma);
+                printf("%d\n", infst);
                 break;
                 }
     break;
