@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #define MAX_LINE_SIZE 1000
 
 typedef struct {
@@ -39,13 +38,8 @@ char* filename = "FitnessData_2023.csv";
         printf("Error opening file\n");
         return 1;
     }
-   
-    int buffer_size = 999999;
-    char line_buffer[buffer_size];
 
-FITNESS_DATA fit[90];
-
-  int lin = 0;
+    int lin = 0;
     char rec;
 
     while (rec != EOF){
@@ -53,71 +47,45 @@ FITNESS_DATA fit[90];
         if (rec == '\n'){
             lin++;
         } 
-        
-        
-    
     }  
 
     printf("Number of records in file: %d\n", lin);
     fclose(file);
     fopen(filename, "r");
 
-int lnum = 0;
-//char *nxf;
-char line[MAX_LINE_SIZE+1];
-
-  while (1) {
-    fgets(line, MAX_LINE_SIZE, file);
-    if (feof(file))  
-      break;
-    lnum++;
-    //nxf = strtok(line, "");
-    
+    int lnum = 0;
+    char line[MAX_LINE_SIZE+1];
     const char coma[4] = ",";
-    char* tok;
- 
-    //char *dgm = (nxf=",");
-    //int zarasa=atoi(dgm); 
- 
-    tok = strtok(line, coma);
- 
-    //int lin2 = 0;
-    //char rec2;
+    char* info;
 
-    while (lnum<4){
-        while (tok != 0) {
-            printf("%s/", tok);
-            tok = strtok(0, coma);
+    while (1) {
+        fgets(line, MAX_LINE_SIZE,  file);
+        if (feof(file))
             break;
-        }
+            lnum++;
+            info = strtok(line,coma);
 
-        while (tok != 0) {
-            printf("%s/", tok);
-            tok = strtok(0, coma);
-            break;
-        }
+        while (lnum<4){
+            while (info != 0) {
+                printf("%s/", info);
+                info = strtok(0, coma);
+                break;
+                }
 
-        while (tok != 0) {
-            printf("%s", tok);
-            tok = strtok(0, coma);
-            break;
-        }
+            while (info != 0) {
+                printf("%s/", info);
+                info = strtok(0, coma);
+                break;
+                }
+
+            while (info != 0) {
+                printf("%s", info);
+                info = strtok(0, coma);
+                break;
+                }
     break;
-    }
-    //tok = strtok(date, coma);
-    
-    //while (tok != 0) {
-    //printf("%s\n", tok);
-    //if (nxf = ""){
-    //printf("dgm");
-    //tok = strtok(0, coma);
-    
-    //}
-    //}
-    
-    
-  }
+    }}
 
-  fclose(file);
+fclose(file);
 return 0;
 }
