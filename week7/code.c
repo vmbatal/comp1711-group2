@@ -20,10 +20,13 @@ int main()
     char choice;
     int counter = 0;
     float mean = 0;
-
+    float min = 0;
+    float max = 0;
+    
     while (1)
     {
-        FILE *input = fopen(filename, "r");
+    
+    FILE *input = fopen(filename, "r");
         if (!input)
         {
             printf("Error: File could not be opened\n");
@@ -86,12 +89,30 @@ int main()
 
         case 'C':
         case 'c':
-            return 0;
+            counter = 0;
+            while (fgets(line, buffer_size, input))
+            {
+                tokeniseRecord(line, ",", daily_readings[counter].date, &daily_readings[counter].bloodIron);
+                min = daily_readings[counter].bloodIron;
+                counter++;
+            }
+            min <= counter;
+            printf("Your minimum blood iron was %.2f\n", min);
+            fclose(input);
             break;
 
         case 'D':
         case 'd':
-            return 0;
+            counter = 0;
+            while (fgets(line, buffer_size, input))
+            {
+                tokeniseRecord(line, ",", daily_readings[counter].date, &daily_readings[counter].bloodIron);
+                max = daily_readings[counter].bloodIron;
+                counter++;
+            }
+            max >= counter;
+            printf("Your maximum blood iron was %.2f\n", max);
+            fclose(input);
             break;
 
         case 'E':
