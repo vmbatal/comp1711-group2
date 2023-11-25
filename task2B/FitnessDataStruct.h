@@ -9,3 +9,17 @@ typedef struct {
 
 void tokeniseRecord(const char *input, const char *delimiter, char *date, char *time, char *steps);
 
+int lin = 0;
+char rec;
+
+int nrecords(FILE *file) { 
+
+while (rec != EOF){
+    rec = fgetc(file);
+    if (rec == '\n'){
+        lin++;
+    }} 
+
+printf("Number of records in file: %d\n", lin);
+lin = 0;
+}

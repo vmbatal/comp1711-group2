@@ -50,8 +50,7 @@ char* filename = "FitnessData_2023.csv";
     }  
 
     printf("Number of records in file: %d\n", lin);
-    fclose(file);
-    fopen(filename, "r");
+    lin = 0
 
     int lnum = 0;
     char line[MAX_LINE_SIZE+1];

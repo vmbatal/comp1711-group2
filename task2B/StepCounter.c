@@ -1,5 +1,3 @@
-#include "FitnessDataStruct.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,41 +32,53 @@ char a;
 
 fits fit[100];
 char line[buffer_size];
+char filename[buffer_size];
 
+while (1)
+{
 
+printf("A: Specify the filename to be imported\n");       
+printf("B: Display the total number of records in the file\n");          
+printf("C: Find the date and time of the timeslot with the fewest steps\n");           
+printf("D: Find the date and time of the timeslot with the largest number of steps\n");        
+printf("E: Find the mean step count of all the records in the file\n");
+printf("F: Find the longest continuous period where the step count is above 500 steps\n");
+printf("Q: Quit\n");
+printf("Enter choice: ");
 
-FILE *file = fopen("marks.txt", "r");
-    if (file == NULL) {
-        printf("Error opening the file.\n");
-        return 1;
-    }
+    a = getchar();
+    while (getchar() != '\n');
 
-        printf("A: Specify the filename to be imported\n");       
-        printf("B: Display the total number of records in the file\n");          
-        printf("C: Find the date and time of the timeslot with the fewest steps\n");           
-        printf("D: Find the date and time of the timeslot with the largest number of steps\n");        
-        printf("E: Find the mean step count of all the records in the file\n");
-        printf("F: Find the longest continuous period where the step count is above 500 steps\n");
-        printf("Q: Quit\n");
+    switch (a)
+    {
+        case 'A': 
+            
+        printf("Input filename: ");
+        fgets(line, buffer_size, stdin);
+        sscanf(line, " %s ", filename);
+        FILE *file = fopen(filename, "r");
+        if (file == NULL) {
+            printf("Error: Could not find or open the file.\n");
+            return 1;
+        }
+        printf("File successfully loaded.\n");
+        break;
 
-        a = getchar();
-        while (getchar() != '\n');
+        case 'B':     
+        nrecords(file);
+        break;
+    
+        case 'C':     printf ("\n");
+        break;
 
-        switch (a)
-        {
-            case "A":     printf ("\n");
-            break;
+        case 'D':     printf ("\n");
+        break;
 
-            case "B":     printf ("\n");
-            break;
+        case 'Q':
+        return 0;
+        break;
 
-            case "C":     printf ("\n");
-            break;
-
-            case "D":     printf ("\n");
-            break;
-
-            default:    printf ("That is not a valid option\n");
+        default:    printf ("Invalid choice. Try again.\n");
         }
 
-}
+}}
