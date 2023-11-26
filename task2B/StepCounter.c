@@ -28,11 +28,14 @@ void tokeniseRecord(const char *input, const char *delimiter, char *date, char *
 
 int main() {
 
+int f;
+int ithen;
+char datethen;
+char timethen;
 char a;
-
-fits fit[100];
 char line[buffer_size];
 char filename[buffer_size];
+fits fit[100];
 
 while (1)
 {
@@ -52,7 +55,6 @@ printf("Enter choice: ");
     switch (a)
     {
         case 'A': 
-            
         printf("Input filename: ");
         fgets(line, buffer_size, stdin);
         sscanf(line, " %s ", filename);
@@ -61,7 +63,7 @@ printf("Enter choice: ");
             printf("Error: Could not find or open the file.\n");
             return 1;
         }
-        printf("File successfully loaded.\n");
+        printf("File successfully loaded.\n");       
         break;
 
         case 'B':     
@@ -69,6 +71,21 @@ printf("Enter choice: ");
         break;
     
         case 'C':     printf ("\n");
+        int i = 0;
+            while (fgets(line, buffer_size, file))
+            {
+                tokeniseRecord(line, ",", fit[i].date, fit[i].time, fit[i].steps);
+                int sts = atoi(fit[i].steps);
+                int a = sts;
+                i++;
+                int b = sts;
+                if (b <= a){
+                    f = b;
+                    
+                }
+                printf("%s", fit[i].date);
+            }
+            printf("Fewest steps: ");
         break;
 
         case 'D':     printf ("\n");
@@ -79,6 +96,6 @@ printf("Enter choice: ");
         break;
 
         default:    printf ("Invalid choice. Try again.\n");
-        }
+    }
 
 }}

@@ -4,10 +4,11 @@
 typedef struct {
 	char date[11];
 	char time[6];
-	int steps;
+	char steps[5];
 } fits;
 
 void tokeniseRecord(const char *input, const char *delimiter, char *date, char *time, char *steps);
+
 
 int lin = 0;
 char rec;
@@ -23,3 +24,6 @@ while (rec != EOF){
 printf("Number of records in file: %d\n", lin);
 lin = 0;
 }
+
+//int nrecords(FILE *file)
+
