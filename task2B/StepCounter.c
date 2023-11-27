@@ -28,6 +28,7 @@ void tokeniseRecord(const char *input, const char *delimiter, char *date, char *
 
 int main() {
 
+int ct = 0;
 int f;
 int ithen;
 char datethen;
@@ -71,21 +72,25 @@ printf("Enter choice: ");
         break;
     
         case 'C':     printf ("\n");
-        int i = 0;
+            ct = 0;
             while (fgets(line, buffer_size, file))
             {
-                tokeniseRecord(line, ",", fit[i].date, fit[i].time, fit[i].steps);
-                int sts = atoi(fit[i].steps);
+                tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
+                int sts = atoi(fit[ct].steps);
                 int a = sts;
-                i++;
+                ct++;
                 int b = sts;
                 if (b <= a){
-                    f = b;
-                    
+                    f = b;               
                 }
-                printf("%s", fit[i].date);
             }
-            printf("Fewest steps: ");
+            for (int i = 0; i < ct; i++){
+                if (f<15) 
+                //hay que hacer f un pointer
+                {
+                printf("Fewest steps: %s %s", fit[i].date, fit[i].time);
+            }}
+        fclose(file);
         break;
 
         case 'D':     printf ("\n");
