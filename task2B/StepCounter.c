@@ -29,8 +29,8 @@ void tokeniseRecord(const char *input, const char *delimiter, char *date, char *
 int main() {
 
 int ct = 0;
-int f;
-int ithen;
+int f = 0;
+int ithen = 0;
 char datethen;
 char timethen;
 char a;
@@ -77,23 +77,40 @@ printf("Enter choice: ");
             {
                 tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
                 int sts = atoi(fit[ct].steps);
-                int a = sts;
+                int ststhen = atoi(fit[ct-1].steps);
+                printf("then: %d\n",ststhen);
+                printf("now: %d\n",sts);
+                if (ct != 0){
+                    if (sts <= ststhen){
+                        printf("%d\n", sts);
+                        ithen=ct;
+                }}
+                else (sts > ststhen);
                 ct++;
-                int b = sts;
-                if (b <= a){
-                    f = b;               
-                }
             }
-            for (int i = 0; i < ct; i++){
-                if (f<15) 
-                //hay que hacer f un pointer
-                {
-                printf("Fewest steps: %s %s", fit[i].date, fit[i].time);
-            }}
+        printf("Fewest steps: %s %s\n", fit[ithen].date, fit[ithen].time);
         fclose(file);
         break;
 
         case 'D':     printf ("\n");
+        ct = 0;
+        ithen = 0;
+            while (fgets(line, buffer_size, file))
+            {
+                tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
+                int sts = atoi(fit[ct].steps);
+                int ststhen = atoi(fit[ct-1].steps);
+                printf("then: %d\n",ststhen);
+                printf("now: %d\n",sts);
+                if (ct != 0){
+                    if (sts >= ststhen){
+                        printf("%d\n", sts);
+                        ithen=ct;
+                }}
+                else (sts < ststhen);
+                ct++;
+            }
+        printf("Most steps: %s %s\n", fit[ithen].date, fit[ithen].time);
         break;
 
         case 'Q':

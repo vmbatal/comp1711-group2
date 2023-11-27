@@ -2,13 +2,15 @@
 
 int main()
 {
-    int vector[5] = {11,13,17, 23 , 31};
+    int vector[5] = {13,11,17, 23 , 31};
 
     int* address = vector;
     
     int count = 0;
     
     while(count<5){
-    printf("Address = %d\n", *(++address));
+        if (vector > address){
+    printf("Address = %d\n", *(address++));
+        }
     count++;
 }}
