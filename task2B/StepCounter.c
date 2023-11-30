@@ -100,13 +100,16 @@ printf("Enter choice: ");
                 tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
                 int sts = atoi(fit[ct].steps);
                 int ststhen = atoi(fit[ct-1].steps);
+                int ststop = atoi(fit[ithen].steps);
                 printf("then: %d\n",ststhen);
                 printf("now: %d\n",sts);
                 if (ct != 0){
                     if (sts >= ststhen){
-                        printf("%d\n", sts);
-                        ithen=ct;
-                }}
+                        printf("%d\n", sts); 
+                            if (sts >= ststop){
+                                printf("max: %d\n", sts);
+                                ithen=ct;
+                }}}
                 else (sts < ststhen);
                 ct++;
             }
