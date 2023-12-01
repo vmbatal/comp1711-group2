@@ -114,6 +114,66 @@ printf("Enter choice: ");
                 ct++;
             }
         printf("Most steps: %s %s\n", fit[ithen].date, fit[ithen].time);
+        fclose(file);
+        break;
+
+        case 'E':     printf ("\n");
+        ct = 0;
+        ithen = 0;
+            while (fgets(line, buffer_size, file))
+            {
+                tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
+                int sts = atoi(fit[ct].steps);
+                int ststhen = atoi(fit[ct-1].steps);
+                printf("then: %d\n",ststhen);
+                printf("now: %d\n",sts);
+                if (ct != 0){
+                    f = f + sts + ststhen;
+                    printf("%d\n", f); 
+                }
+                else (sts != 0);
+                ct++;
+            }
+        int mean = f/ct;  
+        printf("Mean steps: %d\n", mean);
+        fclose(file);
+        break;
+
+        case 'F':     printf ("\n");
+        ct = 0;
+        ithen = 0;
+        int period = 0;
+        int topperiod = 0;
+        int ithenstart = 0;   
+            
+            while (fgets(line, buffer_size, file))
+            {
+                tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
+                int sts = atoi(fit[ct].steps);
+                printf("now: %d\n",sts);
+                if (sts <= 500){
+                        period = 0;
+                        printf("%d\n", period);
+                    }
+                else (ct != 0);
+                if (sts > 500){ 
+                    period++;
+                    printf("%d\n", period);
+                    if (period > topperiod){
+                        topperiod++;
+                        printf("top: %d\n", topperiod);
+                        ithen=ct;
+                        ithenstart = ithen - (topperiod-1);
+                        printf("ithen: %d\n", ithen);
+                        printf("istart: %d\n", ithenstart);
+                        }
+                else (sts != 0);
+                ct++;
+            printf("ct: %d\n", ct);
+            }}
+        printf("Longest period start: %s %s\n", fit[ithenstart].date, fit[ithenstart].time);
+        printf("Longest period end: %s %s\n", fit[ithen].date, fit[ithen].time);
+        fclose(file);
         break;
 
         case 'Q':
