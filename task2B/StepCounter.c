@@ -29,7 +29,6 @@ void tokeniseRecord(const char *input, const char *delimiter, char *date, char *
 int main() {
 
 int ct = 0;
-int f = 0;
 int ithen = 0;
 char datethen;
 char timethen;
@@ -68,31 +67,35 @@ printf("Enter choice: ");
         break;
 
         case 'B':     
+        fopen(filename, "r");
         nrecords(file);
+        fclose(file);
         break;
     
         case 'C':     printf ("\n");
-            ct = 0;
-            while (fgets(line, buffer_size, file))
-            {
-                tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
-                int sts = atoi(fit[ct].steps);
-                int ststhen = atoi(fit[ct-1].steps);
-                printf("then: %d\n",ststhen);
-                printf("now: %d\n",sts);
-                if (ct != 0){
-                    if (sts <= ststhen){
-                        printf("%d\n", sts);
-                        ithen=ct;
+        fopen(filename, "r");
+        ct = 0;
+        while (fgets(line, buffer_size, file))
+        {
+            tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
+            int sts = atoi(fit[ct].steps);
+            int ststhen = atoi(fit[ct-1].steps);
+            printf("then: %d\n",ststhen);
+            printf("now: %d\n",sts);
+            if (ct != 0){
+                if (sts <= ststhen){
+                    printf("%d\n", sts);
+                    ithen=ct;
                 }}
-                else (sts > ststhen);
-                ct++;
-            }
+            else (sts > ststhen);
+            ct++;
+        }
         printf("Fewest steps: %s %s\n", fit[ithen].date, fit[ithen].time);
         fclose(file);
         break;
 
         case 'D':     printf ("\n");
+        fopen(filename, "r");
         ct = 0;
         ithen = 0;
             while (fgets(line, buffer_size, file))
@@ -118,8 +121,10 @@ printf("Enter choice: ");
         break;
 
         case 'E':     printf ("\n");
+        fopen(filename, "r");
         ct = 0;
         ithen = 0;
+        int tot = 0;
             while (fgets(line, buffer_size, file))
             {
                 tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
@@ -128,18 +133,19 @@ printf("Enter choice: ");
                 printf("then: %d\n",ststhen);
                 printf("now: %d\n",sts);
                 if (ct != 0){
-                    f = f + sts + ststhen;
-                    printf("%d\n", f); 
+                    tot = tot + sts + ststhen;
+                    printf("%d\n", tot); 
                 }
                 else (sts != 0);
                 ct++;
             }
-        int mean = f/ct;  
+        int mean = tot/ct;  
         printf("Mean steps: %d\n", mean);
         fclose(file);
         break;
 
         case 'F':     printf ("\n");
+        fopen(filename, "r");
         ct = 0;
         ithen = 0;
         int period = 0;
