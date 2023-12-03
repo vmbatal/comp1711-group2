@@ -15,8 +15,6 @@ int ct = 0;
 int ithen = 0;
 int lin;
 char rec;
-char datethen;
-char timethen;
 char a;
 char line[buffer_size];
 char filename[buffer_size];
@@ -31,10 +29,6 @@ int options(){
     printf("F: Find the longest continuous period where the step count is above 500 steps\n");
     printf("Q: Quit\n");
     printf("Enter choice: ");
-}
-
-int whatfile(){
-    
 }
 
 int nrecords(FILE *file) { 
