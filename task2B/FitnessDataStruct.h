@@ -54,10 +54,12 @@ int min(FILE *file) {
             tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
             int sts = atoi(fit[ct].steps);
             int ststhen = atoi(fit[ct-1].steps);
+            int ststop = atoi(fit[ithen].steps);
             if (ct != 0){
                 if (sts <= ststhen){
-                    ithen=ct;
-                }}
+                    if (sts <= ststop){
+                        ithen=ct;
+                }}}
             else (sts > ststhen);
             ct++;
         }
