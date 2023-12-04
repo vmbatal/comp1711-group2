@@ -89,23 +89,35 @@ int max(FILE *file) {
 int means(FILE *file) {
 ct = 0;
         ithen = 0;
-        int tot = 0;
-        int mean = 0;
-        int first = 0;    
+        float tot = 0;
+        float mean = 0;    
+        float first;
             while (fgets(line, buffer_size, file))
             {
                 tokeniseRecord(line, ",", fit[ct].date, fit[ct].time, fit[ct].steps);
                 int sts = atoi(fit[ct].steps);
                 int ststhen = atoi(fit[0].steps);
+                printf("now= %d\n", sts);
+                printf("then= %d\n", ststhen);
                 if (ct != 0){
                     tot = tot + sts;
+                    printf("tot= %f\n", tot);
                 }
                 else (sts != 0);
                 ct++;
                 first = ststhen;
             }
-        mean = (tot + first)/ct;  
-        printf("Mean step count: %d\n", mean);
+        printf("final tot= %f\n", tot);
+        mean = (tot + first)/ct;
+        int meannow = mean;
+        printf("mean then= %f\n", mean);
+        if ((mean-0.5)<meannow){
+            mean = mean + 1;
+            printf("mean now= %f\n", mean);
+        }
+        else ((mean-0.5)<meannow);
+        meannow = mean + 1;
+        printf("Mean step count: %d\n", meannow);
 }
 
 int stepperiod(FILE *file) {
