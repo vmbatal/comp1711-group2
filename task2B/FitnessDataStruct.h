@@ -50,7 +50,7 @@ printf("lastrec= %d\n", lastrec);
 if (lastrec != 10) {
     lin = lin+1;
 }
-printf("Number of records in file: %d\n", lin);
+printf("Total records: %d\n", lin);
 lin = 0;
 rec = 0;
 }
