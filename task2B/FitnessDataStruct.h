@@ -37,16 +37,18 @@ lin = 0;
 rec = 0;
 int lastrec;
 while (rec != EOF){
-    printf("%d\n", rec);
+    printf("rec %d\n", rec);
+    lastrec = rec;
     rec = fgetc(file);
     if (rec == '\n'){
-        lastrec = rec;
         lin++;
-    }} 
+    }
+    printf("lr %d\n", lastrec);
+    } 
 
 printf("lastrec= %d\n", lastrec);
-if (lastrec = 10) {
-    lin = lin-1;
+if (lastrec != 10) {
+    lin = lin+1;
 }
 printf("Number of records in file: %d\n", lin);
 lin = 0;
