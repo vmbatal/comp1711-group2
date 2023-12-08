@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "sort.h"
+#include "FitnessDataStruct.h"
 
 void tokeniseRecord(const char *input, const char *delimiter, char *date, char *time, char *steps) {
 
